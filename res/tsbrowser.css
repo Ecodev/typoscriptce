@@ -1,0 +1,105 @@
+#ts-tree-container {
+	float:left;
+	width: 360px;
+	overflow: hidden;
+}
+#ts-preview-container {
+	float:left;
+	width: 460px;
+	overflow: auto;
+}
+
+#ts-preview {
+	border: 2px solid black;
+	background-color: #fff;
+	width: 450px;
+	overflow: auto;
+	min-height: 300px;
+}
+#ts-preview h3 {
+	margin: 0;
+	padding: 3px 10px;
+}
+#ts-previev pre {
+	padding: 5px;
+	overflow: auto;
+}
+#ts-tree ul, #ts-tree li {
+	padding: 0;
+	margin: 0;
+
+	list-style: none;
+	line-height: 16px;
+}
+
+#ts-tree li {
+	padding-left: 20px;
+}
+
+ul.tree {
+	padding-left: 2px;
+}
+
+ul.tree li {
+	background: 0 0 url(../../../../typo3/gfx/ol/join.gif) no-repeat transparent;
+}
+
+ul.tree li > span {
+	cursor: pointer;
+}
+
+ul.tree li > strong {
+	cursor: pointer;
+}
+
+ul.tree li.last {
+	background: 0 0 url(../../../../typo3/gfx/ol/joinbottom.gif) no-repeat transparent;
+}
+
+ul.tree li.act > strong {
+	font-style: italic;
+}
+
+ul.tree li.act > span {
+	font-style: italic;
+}
+
+ul.tree li.pm > strong {
+	margin-left: -20px;
+	padding-left: 20px;
+}
+
+ul.tree li.pm > ul {
+	margin-left: -20px;
+	padding-left: 20px;
+	background: 0 0 url(../../../../typo3/gfx/ol/line.gif) repeat-y transparent;
+}
+
+ul.tree li.last.pm > ul {
+	background: none;
+}
+
+ul.tree li.minus {
+	background: 0 0 url(../../../../typo3/gfx/ol/minus.gif) no-repeat transparent;
+}
+
+ul.tree li.plus {
+	background: 0 0 url(../../../../typo3/gfx/ol/plus.gif) no-repeat transparent;
+}
+
+ul.tree li.minus.last {
+	background: 0 0 url(../../../../typo3/gfx/ol/minusbottom.gif) no-repeat transparent;
+}
+
+ul.tree li.plus.last {
+	background: 0 0 url(../../../../typo3/gfx/ol/plusbottom.gif) no-repeat transparent;
+}
+
+ul.tree li.minus > ul {
+	display: block;
+}
+
+ul.tree li.plus > ul {
+	display: none;
+}
+

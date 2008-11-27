@@ -7,8 +7,10 @@
 	<data type="array">
 		<languageKey index="default" type="array">
 			<label index="tt_content.CType_pi1">Typoscript CE</label>
+			<label index="pi1_plus_wiz_description_typoscriptce">Insert content element for processing Typoscript</label>
 			<label index="typoscript">Typoscript (Object COA / COA_INT)</label>
 			<label index="no_cache">Uncached object (COA_INT)</label>
+			<label index="tt_content.ts_browser">Typoscript-Browser</label>
 		</languageKey>
 	</data>
 </T3locallang>

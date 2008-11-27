@@ -31,6 +31,7 @@ require_once(PATH_tslib.'class.tslib_pibase.php');
 require_once(PATH_t3lib.'class.t3lib_tsparser.php');
 require_once(PATH_t3lib.'class.t3lib_matchcondition.php');
 
+
 /**
  * Plugin 'Typoscript Object' for the 'typoscriptce' extension.
  *
@@ -43,7 +44,7 @@ class tx_typoscriptce_pi1 extends tslib_pibase {
 	var $scriptRelPath = 'pi1/class.tx_typoscriptce_pi1.php';	// Path to this script relative to the extension dir.
 	var $extKey        = 'typoscriptce';	// The extension key.
 	var $pi_checkCHash = true;
-	
+
 	/**
 	 * The main method of the PlugIn
 	 *
@@ -52,20 +53,22 @@ class tx_typoscriptce_pi1 extends tslib_pibase {
 	 * @return	The content that is displayed on the website
 	 */
 	function main($content, $conf)	{
-		
+
 		// get data
 		$obj = $this->cObj->data['imageborder'] ? 'COA_INT' : 'COA';
 		$tsRaw = $this->cObj->data['bodytext'];
-		
+
 		// parse TS
 		$tsParser = t3lib_div::makeInstance('t3lib_TSparser');
 		$tsParser->parse($tsRaw);
 		$result = $tsParser->setup;
-		
+
 		// render output
 		$out = $this->cObj->cObjGetSingle($obj, $result);
 		return $this->pi_wrapInBaseClass($out);
 	}
+
+
 }
 
 
