@@ -26,7 +26,6 @@ if (TYPO3_MODE=='BE') {
 t3lib_extMgm::addPlugin(array('LLL:EXT:typoscriptce/locallang_db.xml:tt_content.CType_pi1', $_EXTKEY.'_pi1', t3lib_extMgm::extRelPath($_EXTKEY).'ext_icon.gif'),'CType');
 
 if (TYPO3_MODE=='BE') {
-	$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['tx_typoscriptce_pi1_wizicon'] = t3lib_extMgm::extPath($_EXTKEY).'pi1/class.tx_typoscriptce_pi1_wizicon.php';
 	$TYPO3_CONF_VARS['BE']['AJAX']['TSbrowser::TSobject'] = t3lib_extMgm::extPath($_EXTKEY) . 'class.user_tsbrowser.php:user_TSbrowser->renderAjaxTSobject';
 	$TYPO3_CONF_VARS['BE']['AJAX']['TSbrowser::TSshowFlag'] = t3lib_extMgm::extPath($_EXTKEY) . 'class.user_tsbrowser.php:user_TSbrowser->renderAjaxTStree';
 }
