@@ -27,11 +27,6 @@
  * Hint: use extdeveval to insert/update function index above.
  */
 
-require_once(PATH_tslib.'class.tslib_pibase.php');
-require_once(PATH_t3lib.'class.t3lib_tsparser.php');
-require_once(PATH_t3lib.'class.t3lib_matchcondition.php');
-
-
 /**
  * Plugin 'Typoscript Object' for the 'typoscriptce' extension.
  *
