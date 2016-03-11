@@ -1,75 +1,75 @@
 <?php
-/***************************************************************
-*  Copyright notice
-*
-*  (c) 2008 Steffen Kamper <info@sk-typo3.de>
-*  All rights reserved
-*
-*  This script is part of the TYPO3 project. The TYPO3 project is
-*  free software; you can redistribute it and/or modify
-*  it under the terms of the GNU General Public License as published by
-*  the Free Software Foundation; either version 2 of the License, or
-*  (at your option) any later version.
-*
-*  The GNU General Public License can be found at
-*  http://www.gnu.org/copyleft/gpl.html.
-*
-*  This script is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU General Public License for more details.
-*
-*  This copyright notice MUST APPEAR in all copies of the script!
-***************************************************************/
+
 /**
- * [CLASS/FUNCTION INDEX of SCRIPT]
+ * This file is part of the TYPO3 CMS project.
  *
- * Hint: use extdeveval to insert/update function index above.
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
  */
+
+use TYPO3\CMS\Core\TypoScript\Parser\TypoScriptParser;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Frontend\Plugin\AbstractPlugin;
 
 /**
  * Plugin 'Typoscript Object' for the 'typoscriptce' extension.
  *
- * @author	Steffen Kamper <info@sk-typo3.de>
- * @package	TYPO3
- * @subpackage	tx_typoscriptce
+ * @author    Steffen Kamper <info@sk-typo3.de>
  */
-class tx_typoscriptce_pi1 extends tslib_pibase {
-	var $prefixId      = 'tx_typoscriptce_pi1';		// Same as class name
-	var $scriptRelPath = 'pi1/class.tx_typoscriptce_pi1.php';	// Path to this script relative to the extension dir.
-	var $extKey        = 'typoscriptce';	// The extension key.
-	var $pi_checkCHash = true;
+class tx_typoscriptce_pi1 extends AbstractPlugin
+{
 
-	/**
-	 * The main method of the PlugIn
-	 *
-	 * @param	string		$content: The PlugIn content
-	 * @param	array		$conf: The PlugIn configuration
-	 * @return	The content that is displayed on the website
-	 */
-	function main($content, $conf)	{
+    /**
+     * @var string
+     */
+    public $prefixId = 'tx_typoscriptce_pi1';
 
-		// get data
-		$obj = $this->cObj->data['imageborder'] ? 'COA_INT' : 'COA';
-		$tsRaw = $this->cObj->data['bodytext'];
+    /**
+     * Path to this script relative to the extension dir.
+     *
+     * @var string
+     */
+    public $scriptRelPath = 'pi1/class.tx_typoscriptce_pi1.php';
 
-		// parse TS
-		$tsParser = t3lib_div::makeInstance('t3lib_TSparser');
-		$tsParser->parse($tsRaw);
-		$result = $tsParser->setup;
+    /**
+     * @var string
+     */
+    public $extKey = 'typoscriptce';
 
-		// render output
-		$out = $this->cObj->cObjGetSingle($obj, $result);
-		return $this->pi_wrapInBaseClass($out);
-	}
+    /**
+     * @var bool
+     */
+    public $pi_checkCHash = true;
+
+    /**
+     * The main method of the PlugIn
+     *
+     * @param string $content : The PlugIn content
+     * @param array $conf : The PlugIn configuration
+     * @return string
+     */
+    public function main($content, $conf)
+    {
+
+        // get data
+        $obj = $this->cObj->data['imageborder'] ? 'COA_INT' : 'COA';
+        $tsRaw = $this->cObj->data['bodytext'];
+
+        // parse TS
+        $tsParser = GeneralUtility::makeInstance(TypoScriptParser::class);
+        $tsParser->parse($tsRaw);
+        $result = $tsParser->setup;
+
+        // render output
+        $out = $this->cObj->cObjGetSingle($obj, $result);
+        return $this->pi_wrapInBaseClass($out);
+    }
 
 
 }
-
-
-
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/typoscriptce/pi1/class.tx_typoscriptce_pi1.php'])	{
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/typoscriptce/pi1/class.tx_typoscriptce_pi1.php']);
-}
-
-?>
