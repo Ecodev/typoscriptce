@@ -1,6 +1,5 @@
 {
     "name": "ecodev/typoscriptce",
-    "version": "1.0.0",
     "type": "typo3-cms-extension",
     "description": "Process any typoscript in a Content Element (CE)",
     "homepage": "https://github.com/ecodev/typoscriptce",
